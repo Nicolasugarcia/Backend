@@ -1,0 +1,32 @@
+/* font-family: 'Lora', serif; */
+body {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+header {
+    padding: 10px 0;
+    background: #404349;
+    
+}
+
+
+header h1 {
+    text-align: center;
+    color: white;
+}
+
+
+
+
+
+
+footer {
+    background: #404349;
+    margin-top: 20px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+}
+
