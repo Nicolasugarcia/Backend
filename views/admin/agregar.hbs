@@ -1,0 +1,21 @@
+<div class="container" style="margin: 100px auto">
+    <div class="row">
+        <div>
+            <h4 class="text-center">Agregar el nuevo combo</h4>
+            <form action="/admin/combos/agregar" method="post">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control"
+                    placeholder="Titulo" name="titulo">
+                </div>
+                <div class="mb-3 row">
+                <textarea type="text" class="form-control"
+                placeholder="Descripcion" name="descripcion"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+            {{#if error}}
+           <p>{{message}}</p>
+           {{/if}}
+        </div>
+    </div>
+</div>
