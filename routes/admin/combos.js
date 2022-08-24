@@ -25,7 +25,7 @@ router.post("/agregar", async (req, res, next)=>{
       await combosModel.insertCombos(req.body);
       res.redirect("/admin/combos")
     } else {
-      res.render("/admin/agregar", {
+      res.render("admin/agregar", {
         layout: "admin/layout",
         error: true,
         message: "todos los campos son requeridos"
