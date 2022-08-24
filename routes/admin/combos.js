@@ -18,6 +18,21 @@ router.get("/agregar",(req, res, next)=>{
   })
 });
 
+router.get("/eliminar/:id" , async (req, res, next)=>{
+  var id = req.params.id;
+  await combosModel.deleteCombosById(id);
+  res.redirect("/admin/combos")
+});
+
+router.get("/modificar/:id" , async (req, res, next)=>{
+  let id = req.params.id;
+  let combos = await combosModel.getCombosById(id);
+  res.render("admin/modificar", {
+    layout: "admin/layout",
+    combos
+  });
+});
+
 
 router.post("/agregar", async (req, res, next)=>{
   try{
@@ -39,6 +54,24 @@ router.post("/agregar", async (req, res, next)=>{
       massage: "no se cargo el nuevo combo"
     })
   }
-})
+});
+
+router.post("/modificar", async (req, res, next)=>{ 
+try{
+  let obj ={
+    titulo: req.body.titulo,
+    descripcion: req.body.descripcion
+  }
+  await combosModel.modificarCombosById(obj, req.body.id);
+  res.redirect("/admin/combos");
+}
+catch (error){
+  console.log(error)
+  res.render("admin/modificar", {
+    layout: "admin/layout",
+    error: true, message: " No se modifico el combo"
+  })
+}
+});
 
 module.exports= router;
